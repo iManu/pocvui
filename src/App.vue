@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <img src="./assets/img/brand/onlinelogoback.svg" class="kv-img">
+        <img src="~imgs/brand/onlinelogoback.svg" class="kv-img">
         <router-view></router-view>
     </div>
 </template>

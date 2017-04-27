@@ -10,6 +10,7 @@ function resolve(dir) {
 module.exports = {
     entry: {
         app: './src/main.js',
+        falcor: './src/assets/js/falcor.browser.js'
     },
     output: {
         path: config.build.assetsRoot,
@@ -24,6 +25,7 @@ module.exports = {
             'vue$': 'vue/dist/vue.esm.js',
             '@': resolve('src'),
             'styles': resolve('src/assets/scss'),
+            'imgs': resolve('src/assets/img'),
         },
     },
     module: {

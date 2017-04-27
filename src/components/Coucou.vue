@@ -1,10 +1,10 @@
 <template>
-  <div class="coucou">
-    <h1>{{ msg }}</h1>
+    <div class="coucou">
+        <h1>{{ msg }}</h1>
 
-    <router-link :to="{ name: 'Hello' }">home</router-link>
-    <Inside></Inside>
-  </div>
+        <router-link :to="{ name: 'Hello' }">home</router-link>
+        <Inside></Inside>
+    </div>
 </template>
 
 <script>
