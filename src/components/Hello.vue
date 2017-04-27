@@ -17,7 +17,7 @@ export default {
           console.log(response.json.greeting);
         });*/
         return {
-            msg: 'Welcome everybody',
+            msg: 'Hello world',
         };
     },
 };
