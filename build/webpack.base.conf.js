@@ -2,6 +2,7 @@ var path = require('path');
 var utils = require('./utils');
 var config = require('../config');
 var vueLoaderConfig = require('./vue-loader.conf');
+var webpack = require('webpack');
 
 function resolve(dir) {
     return path.join(__dirname, '..', dir);
@@ -10,7 +11,6 @@ function resolve(dir) {
 module.exports = {
     entry: {
         app: './src/main.js',
-        falcor: './src/assets/js/falcor.browser.js'
     },
     output: {
         path: config.build.assetsRoot,
@@ -26,6 +26,8 @@ module.exports = {
             '@': resolve('src'),
             'styles': resolve('src/assets/scss'),
             'imgs': resolve('src/assets/img'),
+            'semantic': resolve('node_modules/semantic-ui-css/semantic.min.js')
+
         },
     },
     module: {
@@ -43,10 +45,6 @@ module.exports = {
                 test: /\.vue$/,
                 loader: 'vue-loader',
                 options: vueLoaderConfig,
-            },
-            {
-                test: /\.s[a|c]ss$/,
-                loader: 'vue-style-loader',
             },
             {
                 test: /\.js$/,
@@ -71,4 +69,13 @@ module.exports = {
             },
         ],
     },
+    plugins: [
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery',
+            semantic: 'semantic-ui-css',
+            Semantic: 'semantic-ui-css',
+            'semantic-ui': 'semantic-ui-css',
+        })
+    ],
 };

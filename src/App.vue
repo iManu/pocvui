@@ -1,13 +1,26 @@
 <template>
-    <div id="app">
-        <img src="~imgs/brand/onlinelogoback.svg" class="kv-img">
-        <router-view></router-view>
+    <div id="app" class="ui grid container">
+        <div class="four wide column">
+
+            <img src="~imgs/brand/onlinelogoback.svg" class="kv-img">
+            <LinkList></LinkList>
+
+        </div>
+        <div class="twelve wide column">
+
+            <router-view></router-view>
+        </div>
     </div>
 </template>
 
 <script>
+import LinkList from '@/components/LinkList';
+
 export default {
     name: 'app',
+    components: {
+        LinkList,
+    },
 };
 </script>
 
@@ -15,14 +28,10 @@ export default {
     @import '~styles/main.scss';
 
     #app {
-        font-family: 'Avenir', Helvetica, Arial, sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-align: center;
+
         color: $primary-color;
-        margin-top: 60px;
     }
     .kv-img {
-        width: 80px;
+        width: 40px;
     }
 </style>

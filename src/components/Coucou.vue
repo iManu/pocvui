@@ -2,7 +2,7 @@
     <div class="coucou">
         <h1>{{ msg }}</h1>
 
-        <router-link :to="{ name: 'Hello' }">home</router-link>
+        <router-link :to="{ name: 'Home' }">home</router-link>
         <Inside></Inside>
     </div>
 </template>

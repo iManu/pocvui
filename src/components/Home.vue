@@ -1,26 +1,30 @@
 <template>
-    <div class="hello">
+    <div class="home">
         <h1>{{ msg }}</h1>
         <h2>Poc</h2>
         <router-link :to="{ name: 'Coucou' }">coucou</router-link>
         <p>
-            <switches v-model="enabled" :selected="enabled" theme="bootstrap" color="info" type-bold="true" textEnabled="Switch" textDisabled="Switch again"></switches>
+            <!--<switches v-model="enabled" :selected="enabled" theme="bootstrap" color="info" type-bold="true" textEnabled="Switch" textDisabled="Switch again"></switches>-->
         </p>
-        <LinkList></LinkList>
+        <div class="dimension-list-item">
+          <div class="ui toggle checkbox">
+              <input type="checkbox">
+              <label >ok</label>
+          </div>
+        </div>
+
     </div>
 </template>
 
 <script>
 
-import Switches from '@/components/Switches';
-import LinkList from '@/components/LinkList';
+// import Switches from '@/components/Switches';
 
 export default {
-    name: 'hello',
-    components: {
-        Switches,
-        LinkList,
-    },
+    name: 'home',
+    // components: {
+    //     Switches,
+    // },
     data() {
      /*   var model = new falcor.Model({source: new falcor.HttpDataSource('../data/model.json') });
     model.get("greeting").then(function(response) {
@@ -30,6 +34,12 @@ export default {
             msg: 'Hello world',
         };
     },
+
+    mounted() {
+        // see http://stackoverflow.com/questions/36676215/using-vue-js-with-semantic-ui
+        $('.checkbox').checkbox()
+    },
+
 };
 </script>
 
