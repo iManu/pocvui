@@ -1,6 +1,13 @@
-# voui (VueJS Online User Interface)
+# Voui (VueJS Online User Interface)
 
-> A Vue.js project
+> ⚠ This project use Apollo/GraphQL server for data.
+> Please clone **voui-apollo-server** project and run it in parallel.
+
+Things have been added since the original fork.
+* Scss behaviors
+* Webpack aliases for styles, imgs
+* Apollo/GraphQL layers for data
+* Random components…
 
 ## Build Setup
 

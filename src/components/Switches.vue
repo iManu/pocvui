@@ -1,3 +1,4 @@
+<!-- from https://github.com/drewjbartlett/vue-switches -->
 <template>
     <label :class="classObject">
         <span class="vue-switcher__label">
@@ -16,57 +17,45 @@
 
 export default {
     name: 'switches',
-
     props: {
         typeBold: {
             default: false
         },
-
         selected: {
             default: false
         },
-
         disabled: {
             default: false
         },
-
         label: {
             default: ''
         },
-
         textEnabled: {
             default: ''
         },
-
         textDisabled: {
             default: ''
         },
-
         color: {
             default: 'default'
         },
-
         theme: {
             default: 'default'
         },
-
         emitOnMount: {
             default: true
         }
     },
-
     data () {
         return  {
             enabled: !!this.selected
         }
     },
-
     mounted () {
         if(this.emitOnMount) {
             this.$emit('input', this.enabled = !!this.selected)
         }
     },
-
     watch: {
         enabled (val) {
             this.$emit('input', val);
@@ -76,12 +65,9 @@ export default {
             this.enabled = !!val;
         }
     },
-
     computed: {
         classObject () {
-
             const { color, enabled, theme, typeBold, disabled } = this;
-
             return {
                 'vue-switcher' : true,
                 ['vue-switcher--unchecked'] : !enabled,
@@ -91,13 +77,10 @@ export default {
                 [`vue-switcher-theme--${theme}`] : color,
                 [`vue-switcher-color--${color}`] : color,
             };
-
         }
     }
 }
-
 </script>
-
 
 <style lang="scss">
     /**
