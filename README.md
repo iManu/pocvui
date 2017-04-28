@@ -4,9 +4,10 @@
 > Please clone **voui-apollo-server** project and run it in parallel.
 
 Things have been added since the original fork.
-* Scss behaviors
+* Scss, HTML loaders
 * Webpack aliases for styles, imgs
 * Apollo/GraphQL layers for data
+* Semantic UI (comes with jQuery)
 * Random components…
 
 ## Build Setup
