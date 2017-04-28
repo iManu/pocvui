@@ -1,16 +1,24 @@
+<!-- from https://github.com/drewjbartlett/vue-switches -->
 <template>
     <div class="hello">
         <h1>{{ msg }}</h1>
         <h2>Poc</h2>
         <router-link :to="{ name: 'Coucou' }">coucou</router-link>
-
+        <p>
+            Switch <switches v-model="enabled" :selected="enabled" theme="bootstrap" color="info"></switches>
+        </p>
     </div>
 </template>
 
 <script>
 
+import Switches from '@/components/Switches';
+
 export default {
     name: 'hello',
+    components: {
+        Switches,
+    },
     data() {
      /*   var model = new falcor.Model({source: new falcor.HttpDataSource('../data/model.json') });
     model.get("greeting").then(function(response) {
