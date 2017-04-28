@@ -6,7 +6,7 @@
     <template v-else>
       <ul>
         <li v-for="link in links" :key="link.id">
-          <a :href="link.href">{{ link.title }}</a>
+          <router-link :to="{ name: link.router }">{{ link.title }}</router-link>
         </li>
       </ul>
     </template>
@@ -23,6 +23,7 @@ const linksQuery = gql`
       id
       title
       href
+      router
     }
   }
 `;
