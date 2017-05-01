@@ -39,7 +39,7 @@ export default {
         };
     },
     apollo: {
-        // Local state 'posts' data
+        // Local state 'links' data
         links: {
             query: linksQuery,
             loadingKey: 'loading',

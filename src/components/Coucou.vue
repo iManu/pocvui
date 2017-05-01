@@ -1,6 +1,7 @@
 <template>
     <div class="coucou">
-        <h1>{{ msg }}</h1>
+        <h1>{{ page.H1 }}</h1>
+        <h2>{{ page.H2 }}</h2>
 
         <router-link :to="{ name: 'Home' }">Home</router-link>
         <Inside></Inside>
@@ -8,20 +9,41 @@
 </template>
 
 <script>
+    import gql from 'graphql-tag';
+    import Inside from '@/components/Inside';
 
-import Inside from '@/components/Inside';
+    // GraphQL query
+    const pageQuery = gql`
+        query getPage($route: String!) {
+            page(route: $route) {
+                H1
+                H2
+            }
+        }
+    `;
 
-export default {
-    name: 'coucou',
-    components: {
-        Inside,
-    },
-    data() {
-        return {
-            msg: 'Une autre page',
-        };
-    },
-};
+    export default {
+        name: 'coucou',
+        components: {
+            Inside,
+        },
+        data() {
+            return {
+                page: {},
+                routename: this.$route.name,
+            };
+        },
+        apollo: {
+            page: {
+                query: pageQuery,
+                variables() {
+                    return {
+                        route: this.routename,
+                    };
+                },
+            },
+        },
+    };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

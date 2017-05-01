@@ -5,6 +5,7 @@
             <LinkList></LinkList>
         </div>
         <div class="fourteen wide column">
+
             <router-view></router-view>
         </div>
     </div>
@@ -15,10 +16,16 @@
 
     export default {
         name: 'app',
+        // data() {
+        //     return {
+        //         routename: this.$route.name,
+        //     };
+        // },
         components: {
             LinkList,
         },
     };
+
 </script>
 
 <style lang="scss" scoped>

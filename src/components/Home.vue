@@ -4,8 +4,9 @@
             Loading…
         </template>
         <template v-else> -->
-            <h1>{{ msg }}</h1>
-            <h2>Vuejs, SemanticUI, GraphQL/Apollo, Unit test</h2>
+            <h1>{{ page.H1 }}</h1>
+            <h2>{{ page.H2 }}</h2>
+            <p>Vuejs, SemanticUI, GraphQL/Apollo, Unit test</p>
             <router-link :to="{ name: 'Coucou' }">Autre page</router-link>
             <p>
                 <!--<switches v-model="enabled" :selected="enabled" theme="bootstrap" color="info" type-bold="true" textEnabled="Switch" textDisabled="Switch again"></switches>-->
@@ -23,18 +24,18 @@
 
 <script>
 
-    // import gql from 'graphql-tag';
+    import gql from 'graphql-tag';
     import Checkbox from '@/components/ui/Checkbox';
 
     // GraphQL query
-    // const pagesQuery = gql`
-    // query allPages {
-    //     pages {
-    //         H1
-    //         H2
-    //     }
-    // }
-    // `;
+    const pageQuery = gql`
+        query getPage($route: String!) {
+            page(route: $route) {
+                H1
+                H2
+            }
+        }
+    `;
 
     export default {
         name: 'home',
@@ -43,18 +44,20 @@
         },
         data() {
             return {
-                pages: [],
-                loading: 1,
-                msg: 'POC menu',
+                page: {},
+                routename: this.$route.name,
             };
         },
-        // apollo: {
-        //     // Local state 'posts' data
-        //     pages: {
-        //         query: pagesQuery,
-        //         loadingKey: 'loading',
-        //     },
-        // },
+        apollo: {
+            page: {
+                query: pageQuery,
+                variables() {
+                    return {
+                        route: this.routename,
+                    };
+                },
+            },
+        },
     };
 </script>
 
