@@ -1,8 +1,8 @@
 {
-  "name": "voui",
+  "name": "pocvui",
   "version": "1.0.0",
   "description": "A Vue.js project",
-  "author": "Emmanuel Barachant <emmbar.dev+gittower@gmail.com>",
+  "author": "Emmanuel Barachant <emmbar.dev@gmail.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",

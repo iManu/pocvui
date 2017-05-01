@@ -1,4 +1,4 @@
-# Voui (VueJS Online User Interface)
+# POCvui
 
 > ⚠ This project use Apollo/GraphQL server for data.
 > Please clone **voui-apollo-server** project and run it in parallel.
