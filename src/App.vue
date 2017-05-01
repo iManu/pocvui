@@ -1,31 +1,28 @@
 <template>
     <div id="app" class="ui grid container">
-        <div class="four wide column">
-
+        <div class="two wide column">
             <img src="~imgs/brand/onlinelogoback.svg" class="kv-img">
             <LinkList></LinkList>
-
         </div>
-        <div class="twelve wide column">
-
+        <div class="fourteen wide column">
             <router-view></router-view>
         </div>
     </div>
 </template>
 
 <script>
-import LinkList from '@/components/LinkList';
+    import LinkList from '@/components/LinkList';
 
-export default {
-    name: 'app',
-    components: {
-        LinkList,
-    },
-};
+    export default {
+        name: 'app',
+        components: {
+            LinkList,
+        },
+    };
 </script>
 
 <style lang="scss" scoped>
-    @import '~styles/main.scss';
+    @import '~styles/main';
 
     #app {
 

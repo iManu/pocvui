@@ -1,67 +1,82 @@
 <template>
     <div class="home">
-        <h1>{{ msg }}</h1>
-        <h2>Poc</h2>
-        <router-link :to="{ name: 'Coucou' }">coucou</router-link>
-        <p>
-            <!--<switches v-model="enabled" :selected="enabled" theme="bootstrap" color="info" type-bold="true" textEnabled="Switch" textDisabled="Switch again"></switches>-->
-        </p>
-        <div class="dimension-list-item">
-          <div class="ui toggle checkbox">
-              <input type="checkbox">
-              <label >ok</label>
-          </div>
-        </div>
-
+        <!-- <template v-if="loading > 0">
+            Loading…
+        </template>
+        <template v-else> -->
+            <h1>{{ msg }}</h1>
+            <h2>Vuejs, SemanticUI, GraphQL/Apollo, Unit test</h2>
+            <router-link :to="{ name: 'Coucou' }">Autre page</router-link>
+            <p>
+                <!--<switches v-model="enabled" :selected="enabled" theme="bootstrap" color="info" type-bold="true" textEnabled="Switch" textDisabled="Switch again"></switches>-->
+            </p>
+            <div class="dimension-list-item">
+                <Checkbox label-title="I'm unchecked" label-checked="Okay I'm checked"></Checkbox>
+                <br>
+                <Checkbox label-title="Label 2"></Checkbox>
+                <br>
+                <Checkbox></Checkbox>
+            </div>
+        <!-- </template> -->
     </div>
 </template>
 
 <script>
 
-// import Switches from '@/components/Switches';
+    // import gql from 'graphql-tag';
+    import Checkbox from '@/components/ui/Checkbox';
 
-export default {
-    name: 'home',
-    // components: {
-    //     Switches,
-    // },
-    data() {
-     /*   var model = new falcor.Model({source: new falcor.HttpDataSource('../data/model.json') });
-    model.get("greeting").then(function(response) {
-          console.log(response.json.greeting);
-        });*/
-        return {
-            msg: 'Hello world',
-        };
-    },
+    // GraphQL query
+    // const pagesQuery = gql`
+    // query allPages {
+    //     pages {
+    //         H1
+    //         H2
+    //     }
+    // }
+    // `;
 
-    mounted() {
-        // see http://stackoverflow.com/questions/36676215/using-vue-js-with-semantic-ui
-        $('.checkbox').checkbox()
-    },
-
-};
+    export default {
+        name: 'home',
+        components: {
+            Checkbox,
+        },
+        data() {
+            return {
+                pages: [],
+                loading: 1,
+                msg: 'POC menu',
+            };
+        },
+        // apollo: {
+        //     // Local state 'posts' data
+        //     pages: {
+        //         query: pagesQuery,
+        //         loadingKey: 'loading',
+        //     },
+        // },
+    };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-    @import '~styles/main.scss';
+    @import '~styles/main';
 
     h1, h2 {
-      font-weight: normal;
+        font-weight: normal;
     }
 
     ul {
-      list-style-type: none;
-      padding: 0;
+        list-style-type: none;
+        padding: 0;
     }
 
     li {
-      display: inline-block;
-      margin: 0 10px;
+        display: inline-block;
+        margin: 0 10px;
     }
 
     a {
-      color: $online-color;
-}
+        color: $online-color;
+    }
 </style>

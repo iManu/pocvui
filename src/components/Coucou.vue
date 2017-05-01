@@ -2,7 +2,7 @@
     <div class="coucou">
         <h1>{{ msg }}</h1>
 
-        <router-link :to="{ name: 'Home' }">home</router-link>
+        <router-link :to="{ name: 'Home' }">Home</router-link>
         <Inside></Inside>
     </div>
 </template>
@@ -18,7 +18,7 @@ export default {
     },
     data() {
         return {
-            msg: 'autre page',
+            msg: 'Une autre page',
         };
     },
 };
@@ -26,7 +26,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-    @import '~styles/main.scss';
+    @import '~styles/main';
 
     h1, h2 {
       font-weight: normal;

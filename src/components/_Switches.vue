@@ -19,67 +19,67 @@ export default {
     name: 'switches',
     props: {
         typeBold: {
-            default: false
+            default: false,
         },
         selected: {
-            default: false
+            default: false,
         },
         disabled: {
-            default: false
+            default: false,
         },
         label: {
-            default: ''
+            default: '',
         },
         textEnabled: {
-            default: ''
+            default: '',
         },
         textDisabled: {
-            default: ''
+            default: '',
         },
         color: {
-            default: 'default'
+            default: 'default',
         },
         theme: {
-            default: 'default'
+            default: 'default',
         },
         emitOnMount: {
-            default: true
-        }
+            default: true,
+        },
     },
-    data () {
-        return  {
-            enabled: !!this.selected
-        }
+    data() {
+        return {
+            enabled: !!this.selected,
+        };
     },
-    mounted () {
-        if(this.emitOnMount) {
-            this.$emit('input', this.enabled = !!this.selected)
+    mounted() {
+        if (this.emitOnMount) {
+            this.$emit('input', this.enabled = !!this.selected);
         }
     },
     watch: {
-        enabled (val) {
+        enabled(val) {
             this.$emit('input', val);
         },
-
-        selected (val) {
+        selected(val) {
             this.enabled = !!val;
-        }
+        },
     },
     computed: {
-        classObject () {
-            const { color, enabled, theme, typeBold, disabled } = this;
+        classObject() {
+            // const { color, enabled, theme, typeBold, disabled } = this;
+            const { enabled, typeBold, disabled } = this;
             return {
-                'vue-switcher' : true,
-                ['vue-switcher--unchecked'] : !enabled,
-                ['vue-switcher--disabled'] : disabled,
-                ['vue-switcher--bold']: typeBold,
-                ['vue-switcher--bold--unchecked']: typeBold && !enabled,
-                [`vue-switcher-theme--${theme}`] : color,
-                [`vue-switcher-color--${color}`] : color,
+                'vue-switcher': true,
+                'vue-switcher--unchecked': !enabled,
+                'vue-switcher--disabled': disabled,
+                'vue-switcher--bold': typeBold,
+                'vue-switcher--bold--unchecked': typeBold && !enabled,
+                // `vue-switcher-theme--${theme}`: color,
+                // `vue-switcher-color--${color}`: color,
             };
-        }
-    }
-}
+        },
+    },
+};
 </script>
 
 <style lang="scss">

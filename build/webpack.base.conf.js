@@ -1,8 +1,17 @@
-var path = require('path');
-var utils = require('./utils');
-var config = require('../config');
-var vueLoaderConfig = require('./vue-loader.conf');
-var webpack = require('webpack');
+const path = require('path');
+const utils = require('./utils');
+const config = require('../config');
+const vueLoaderConfig = require('./vue-loader.conf');
+const webpack = require('webpack');
+const formatter = require('eslint-friendly-formatter');
+
+// const webpackPlugins = new webpack.ProvidePlugin({
+    // $: 'jquery',
+    // jQuery: 'jquery',
+    // semantic: 'semantic-ui-css',
+    // Semantic: 'semantic-ui-css',
+    // 'semantic-ui': 'semantic-ui-css',
+// });
 
 function resolve(dir) {
     return path.join(__dirname, '..', dir);
@@ -11,6 +20,7 @@ function resolve(dir) {
 module.exports = {
     entry: {
         app: './src/main.js',
+        // jquery: resolve('node_modules/jquery/dist/jquery.min.js'),
     },
     output: {
         path: config.build.assetsRoot,
@@ -22,25 +32,25 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.vue', '.json'],
         alias: {
-            'vue$': 'vue/dist/vue.esm.js',
+            vue$: 'vue/dist/vue.esm.js',
             '@': resolve('src'),
-            'styles': resolve('src/assets/scss'),
-            'imgs': resolve('src/assets/img'),
-            'semantic': resolve('node_modules/semantic-ui-css/semantic.min.js')
+            styles: resolve('src/assets/scss'),
+            imgs: resolve('src/assets/img'),
+            // semantic: resolve('node_modules/semantic-ui-css/semantic.min.js'),
 
         },
     },
     module: {
         rules: [
-            /*{
+            {
                 test: /\.(js|vue)$/,
                 loader: 'eslint-loader',
                 enforce: 'pre',
                 include: [resolve('src'), resolve('test')],
                 options: {
-                    formatter: require('eslint-friendly-formatter'),
+                    formatter,
                 },
-            },*/
+            },
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',
@@ -69,13 +79,7 @@ module.exports = {
             },
         ],
     },
-    plugins: [
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
-            semantic: 'semantic-ui-css',
-            Semantic: 'semantic-ui-css',
-            'semantic-ui': 'semantic-ui-css',
-        })
-    ],
+    // plugins: [
+    //     webpackPlugins,
+    // ],
 };

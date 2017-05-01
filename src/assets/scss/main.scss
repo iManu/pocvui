@@ -1,2 +1,6 @@
-$primary-color: salmon;
-$online-color: #0795d2;
+/**
+ * main
+ */
+
+@import 'imports/colors';
+@import 'imports/overrides';
