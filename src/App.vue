@@ -1,7 +1,7 @@
 <template>
     <div id="app" class="ui grid container">
         <div class="two wide column">
-            <img src="~imgs/brand/onlinelogoback.svg" class="kv-img">
+            <img src="~imgs/brand/logo.png" class="kv-img">
             <LinkList></LinkList>
         </div>
         <div class="fourteen wide column">
