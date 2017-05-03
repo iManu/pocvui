@@ -12,7 +12,7 @@
                 <!--<switches v-model="enabled" :selected="enabled" theme="bootstrap" color="info" type-bold="true" textEnabled="Switch" textDisabled="Switch again"></switches>-->
             </p>
             <div class="dimension-list-item">
-                <Checkbox label-title="I'm unchecked" label-checked="Okay I'm checked"></Checkbox>
+                <Checkbox label-title="I'm unchecked" label-checked="Okay I'm checked" mutate="menuColor"></Checkbox>
                 <br>
                 <Checkbox label-title="Label 2"></Checkbox>
                 <br>
