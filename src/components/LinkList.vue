@@ -4,6 +4,7 @@
             Loading…
         </template>
         <template v-else>
+            <button-animated text="Commander" classes="primary" v-bind:icon="{direction:'right', name:'arrow'}"></button-animated>
             <ul>
                 <li v-for="link in links" :key="link.id">
                     <router-link :to="{ name: link.router }">{{ link.title }}</router-link>
@@ -14,43 +15,39 @@
 </template>
 
 <script>
-import gql from 'graphql-tag';
+    import gql from 'graphql-tag';
+    import ButtonAnimated from '@/components/ui/ButtonAnimated';
 
-// GraphQL query
-const linksQuery = gql`
-    query allLinks {
-        links {
-            id
-            title
-            href
-            router
+    // GraphQL query
+    const linksQuery = gql`
+        query allLinks {
+            links {
+                id
+                title
+                href
+                router
+            }
         }
-    }
-`;
+    `;
 
-// Component def
-export default {
-    name: 'link-list',
-    // Local state
-    data() {
-        return {
-            links: [],
-            loading: 0,
-        };
-    },
-    apollo: {
-        // Local state 'links' data
-        links: {
-            query: linksQuery,
-            loadingKey: 'loading',
+    export default {
+        name: 'link-list',
+        components: {
+            ButtonAnimated,
         },
-    },
-    // Computed properties
-    // computed: {
-    //   sortedLinks() {
-    //     return this.links;
-    //   }
-    // },
-};
+        data() {
+            return {
+                links: [],
+                loading: 0,
+            };
+        },
+        apollo: {
+            // Local state 'links' data
+            links: {
+                query: linksQuery,
+                loadingKey: 'loading',
+            },
+        },
+    };
 </script>
 

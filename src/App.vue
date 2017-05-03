@@ -1,12 +1,25 @@
 <template>
-    <div id="app" class="ui grid container">
-        <div class="two wide column">
-            <img src="~imgs/brand/logo.png" class="kv-img">
-            <LinkList></LinkList>
+    <div id="app">
+        <div class="ui menu attached">
+            <div class="header item">Brand</div>
+            <div class="right menu">
+                <div class="item">
+                    <div class="ui transparent icon input">
+                        <i class="search icon"></i>
+                        <input type="text" placeholder="Search">
+                    </div>
+                </div>
+                <a class="item">Link</a>
+            </div>
         </div>
-        <div class="fourteen wide column">
-
-            <router-view></router-view>
+        <div class="ui grid">
+            <div class="two wide column">
+                <img src="~imgs/brand/logo.png" class="kv-img">
+                <LinkList></LinkList>
+            </div>
+            <div class="fourteen wide column">
+                <router-view></router-view>
+            </div>
         </div>
     </div>
 </template>
@@ -16,11 +29,6 @@
 
     export default {
         name: 'app',
-        // data() {
-        //     return {
-        //         routename: this.$route.name,
-        //     };
-        // },
         components: {
             LinkList,
         },

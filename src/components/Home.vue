@@ -18,6 +18,7 @@
                 <br>
                 <Checkbox></Checkbox>
             </div>
+            <button-animated text="FX" classes="secondary fade" content-hidden="Faded"></button-animated>
         <!-- </template> -->
     </div>
 </template>
@@ -26,6 +27,7 @@
 
     import gql from 'graphql-tag';
     import Checkbox from '@/components/ui/Checkbox';
+    import ButtonAnimated from '@/components/ui/ButtonAnimated';
 
     // GraphQL query
     const pageQuery = gql`
@@ -41,6 +43,7 @@
         name: 'home',
         components: {
             Checkbox,
+            ButtonAnimated,
         },
         data() {
             return {
