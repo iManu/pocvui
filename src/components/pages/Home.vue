@@ -18,7 +18,7 @@
                 <br>
                 <Checkbox></Checkbox>
             </div>
-            <button-animated text="FX" classes="secondary fade" content-hidden="Faded"></button-animated>
+            <button-animated text="FX" classes="positive fade" content-hidden="Faded"></button-animated>
         <!-- </template> -->
     </div>
 </template>

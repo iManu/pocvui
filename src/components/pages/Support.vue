@@ -1,6 +1,9 @@
 <template>
     <div class="">
         <h1>{{ page.H1 }}</h1>
+
+        <menu-secondary></menu-secondary>
+
         <h2>{{ page.H2 }}</h2>
 
         <router-link :to="{ name: 'Home' }">Home</router-link>
@@ -10,6 +13,7 @@
 
 <script>
     import gql from 'graphql-tag';
+    import MenuSecondary from '@/components/ui/MenuSecondary';
     import Inside from '@/components/Inside';
 
     // GraphQL query
@@ -25,6 +29,7 @@
     export default {
         name: 'support',
         components: {
+            MenuSecondary,
             Inside,
         },
         data() {

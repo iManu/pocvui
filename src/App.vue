@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <div class="ui menu attached">
+        <!-- <div class="ui menu attached">
             <div class="header item">Brand</div>
             <div class="right menu">
                 <div class="item">
@@ -11,7 +11,7 @@
                 </div>
                 <a class="item">Link</a>
             </div>
-        </div>
+        </div> -->
         <div class="ui grid">
             <div class="two wide column">
                 <img src="~imgs/brand/logo.png" class="kv-img">
