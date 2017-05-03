@@ -7,7 +7,7 @@
             <h1>{{ page.H1 }}</h1>
             <h2>{{ page.H2 }}</h2>
             <p>Vuejs, SemanticUI, GraphQL/Apollo, Unit test</p>
-            <router-link :to="{ name: 'Coucou' }">Autre page</router-link>
+            <router-link :to="{ name: 'Domain' }">Autre page</router-link>
             <p>
                 <!--<switches v-model="enabled" :selected="enabled" theme="bootstrap" color="info" type-bold="true" textEnabled="Switch" textDisabled="Switch again"></switches>-->
             </p>
