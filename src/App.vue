@@ -13,11 +13,12 @@
             </div>
         </div> -->
         <div class="ui grid">
-            <div class="two wide column">
+            <div class="three wide column">
                 <img src="~imgs/brand/logo.png" class="kv-img">
+                <button-animated text="Commander" classes="primary" v-bind:icon="{direction:'right', name:'arrow'}"></button-animated>
                 <LinkList></LinkList>
             </div>
-            <div class="fourteen wide column">
+            <div class="thirteen wide column">
                 <router-view></router-view>
             </div>
         </div>
@@ -25,12 +26,14 @@
 </template>
 
 <script>
-    import LinkList from '@/components/LinkList';
+    import LinkList from '@/components/ui/LinkList';
+    import ButtonAnimated from '@/components/ui/ButtonAnimated';
 
     export default {
         name: 'app',
         components: {
             LinkList,
+            ButtonAnimated,
         },
     };
 

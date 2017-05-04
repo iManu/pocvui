@@ -4,37 +4,30 @@
             Loading…
         </template>
         <template v-else>
-            <button-animated text="Commander" classes="primary" v-bind:icon="{direction:'right', name:'arrow'}"></button-animated>
-            <ul>
-                <li v-for="link in links" :key="link.id">
-                    <router-link :to="{ name: link.router }">{{ link.title }}</router-link>
-                </li>
-            </ul>
+            <div class="ui secondary vertical pointing menu">
+                <router-link v-for="link in links" :key="link.id" class="item" :to="{ name: link.router }" exact>{{ link.title }}</router-link>
+            </div>
         </template>
     </div>
 </template>
 
 <script>
     import gql from 'graphql-tag';
-    import ButtonAnimated from '@/components/ui/ButtonAnimated';
 
     // GraphQL query
     const linksQuery = gql`
-        query allLinks {
-            links {
-                id
-                title
-                href
-                router
-            }
+    query allLinks {
+        links {
+            id
+            title
+            href
+            router
         }
+    }
     `;
 
     export default {
         name: 'link-list',
-        components: {
-            ButtonAnimated,
-        },
         data() {
             return {
                 links: [],
@@ -51,3 +44,12 @@
     };
 </script>
 
+<style lang="scss" scoped>
+    @import '~styles/main';
+
+    a {
+        display: block;
+        width: 100%;
+    }
+
+</style>
