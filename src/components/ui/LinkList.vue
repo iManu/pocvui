@@ -28,6 +28,11 @@
 
     export default {
         name: 'link-list',
+        props: {
+            menuColor() {
+                return true;
+            },
+        },
         data() {
             return {
                 links: [],
