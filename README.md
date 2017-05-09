@@ -20,7 +20,7 @@ yarn install
 npm run dev
 # or
 npm start
-# on VM, add context in env with VM url
+# on VM, add context in env with VM url and graphQL server port, for example :
 LOCATION_CONTEXT=ebarachant.dev.online.net:8999 npm start
 
 # build for production with minification
