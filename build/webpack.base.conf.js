@@ -13,6 +13,9 @@ const formatter = require('eslint-friendly-formatter');
     // 'semantic-ui': 'semantic-ui-css',
 // });
 
+// const envPlugin = new webpack.EnvironmentPlugin(['LOCATION_CONTEXT']);
+const envPlugin = new webpack.EnvironmentPlugin(['LOCATION_CONTEXT']);
+
 function resolve(dir) {
     return path.join(__dirname, '..', dir);
 }
@@ -79,7 +82,8 @@ module.exports = {
             },
         ],
     },
-    // plugins: [
-    //     webpackPlugins,
-    // ],
+    plugins: [
+        // webpackPlugins,
+        envPlugin,
+    ],
 };

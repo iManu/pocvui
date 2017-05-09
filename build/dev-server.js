@@ -42,6 +42,11 @@ compiler.plugin('compilation', function (compilation) {
   })
 })
 
+// Set a context if running through VM or local
+// app.use(function(req, res, next) {
+//     req.location_context = process.env.LOCATION_CONTEXT || 'localhost:8999';
+// });
+
 // proxy api requests
 Object.keys(proxyTable).forEach(function (context) {
   var options = proxyTable[context]
