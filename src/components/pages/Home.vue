@@ -12,22 +12,29 @@
                 <!--<switches v-model="enabled" :selected="enabled" theme="bootstrap" color="info" type-bold="true" textEnabled="Switch" textDisabled="Switch again"></switches>-->
             </p>
             <div class="dimension-list-item">
-                <Checkbox label-title="I'm unchecked" label-checked="Okay I'm checked"></Checkbox>
-                <br>
-                <Checkbox label-title="Label 2"></Checkbox>
-                <br>
-                <Checkbox></Checkbox>
+                <p>
+                    <Checkbox label-title="I'm unchecked" label-checked="Okay I'm checked"></Checkbox>
+                    <br>
+                    <Checkbox label-title="Label 2"></Checkbox>
+                    <br>
+                    <Checkbox></Checkbox>
+
+                </p>
             </div>
-            <button-animated text="FX" classes="positive fade" content-hidden="Faded"></button-animated>
-            <ul class="ui list">
-                <li v-for="user in users">
-                    <ul class="ui bulleted list">
-                        <li class="item">{{user.name}}</li>
-                        <li class="item">{{user.email}}</li>
-                        <li class="item">{{user.website}}</li>
-                    </ul>
-                </li>
-            </ul>
+            <div class="ui divider"></div>
+            <p>
+                <button-animated text="FX" classes="positive fade" content-hidden="Faded"></button-animated>
+            </p>
+            <div class="ui divider"></div>
+            <div class="ui list">
+                <div class="item" v-for="(user, index) in users">
+                    <img class="ui avatar image" :src="'http://lorempixel.com/84/84/people/' + (index + 1)">
+                    <div class="content">
+                        <a class="header">{{user.name}}</a>
+                        <div class="description">{{user.email}} <a><b>Website:</b></a> {{user.website}}</div>
+                    </div>
+                </div>
+            </div>
         </template>
     </div>
 </template>
