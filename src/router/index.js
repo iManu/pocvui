@@ -1,15 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from '@/components/pages/Home';
-import Domain from '@/components/pages/Domain';
-import Servers from '@/components/pages/Servers';
-import Hosting from '@/components/pages/Hosting';
-import ODS from '@/components/pages/ODS';
-import C14 from '@/components/pages/C14';
-import RPN from '@/components/pages/RPN';
-import Storage from '@/components/pages/Storage';
-import API from '@/components/pages/API';
-import Support from '@/components/pages/Support';
+import PageN1 from '@/components/pages/PageN1';
 
 Vue.use(Router);
 
@@ -25,47 +17,47 @@ export default new Router({
         {
             path: '/domain',
             name: 'Domain',
-            component: Domain,
+            component: PageN1,
         },
         {
             path: '/server',
             name: 'Servers',
-            component: Servers,
+            component: PageN1,
         },
         {
             path: '/hosting',
             name: 'Hosting',
-            component: Hosting,
+            component: PageN1,
         },
         {
             path: '/ods',
             name: 'ODS',
-            component: ODS,
+            component: PageN1,
         },
         {
             path: '/c14',
             name: 'C14',
-            component: C14,
+            component: PageN1,
         },
         {
             path: '/rpn',
             name: 'RPN',
-            component: RPN,
+            component: PageN1,
         },
         {
             path: '/storage',
             name: 'Storage',
-            component: Storage,
+            component: PageN1,
         },
         {
             path: '/api',
             name: 'API',
-            component: API,
+            component: PageN1,
         },
         {
             path: '/support',
             name: 'Support',
-            component: Support,
+            component: PageN1,
         },
     ],
 });

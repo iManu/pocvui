@@ -14,7 +14,7 @@ const formatter = require('eslint-friendly-formatter');
 // });
 
 // const envPlugin = new webpack.EnvironmentPlugin(['LOCATION_CONTEXT']);
-const envPlugin = new webpack.EnvironmentPlugin(['LOCATION_CONTEXT']);
+const envPlugin = new webpack.EnvironmentPlugin(['LOCATION_CONTEXT', 'localhost:8999']);
 
 function resolve(dir) {
     return path.join(__dirname, '..', dir);

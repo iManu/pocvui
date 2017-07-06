@@ -3,6 +3,7 @@
         <h1>{{ page.H1 }}</h1>
 
         <menu-secondary></menu-secondary>
+        {{routename}}
 
         <h2>{{ page.H2 }}</h2>
 
@@ -27,7 +28,7 @@
     `;
 
     export default {
-        name: 'hosting',
+        name: 'pageN1',
         components: {
             MenuSecondary,
             Inside,
@@ -38,6 +39,16 @@
                 routename: this.$route.name,
             };
         },
+        watch: {
+            $route() {
+                this.routename = this.$route.name;
+            },
+        },
+        // props: {
+        //     routename: {
+        //         default: this.$route.name,
+        //     },
+        // },
         apollo: {
             page: {
                 query: pageQuery,

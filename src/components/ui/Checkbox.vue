@@ -1,6 +1,6 @@
 <template>
     <div class="ui toggle checkbox">
-        <input type="checkbox" :id="inputId" v-model="checked">
+        <input type="checkbox" :id="inputId" v-model="isChecked">
         <label :for="inputId">{{label}}</label>
     </div>
 </template>
@@ -19,12 +19,12 @@
         data() {
             return {
                 inputId: `test_${Math.random()}`,
-                checked: false,
+                isChecked: false,
             };
         },
         computed: {
             label() {
-                return (this.checked && this.labelChecked) ? this.labelChecked : this.labelTitle;
+                return (this.isChecked && this.labelChecked) ? this.labelChecked : this.labelTitle;
             },
         },
     };

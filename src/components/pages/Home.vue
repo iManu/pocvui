@@ -1,25 +1,34 @@
 <template>
     <div class="home">
-        <!-- <template v-if="loading > 0">
+        <template v-if="loading > 0">
             Loading…
         </template>
-        <template v-else> -->
+        <template v-else>
             <h1>{{ page.H1 }}</h1>
             <h2>{{ page.H2 }}</h2>
             <p>Vuejs, SemanticUI, GraphQL/Apollo, Unit test</p>
-            <router-link :to="{ name: 'Domain' }">Autre page</router-link>
+            <router-link :to="{ name: 'Domain' }">Domaines</router-link>
             <p>
                 <!--<switches v-model="enabled" :selected="enabled" theme="bootstrap" color="info" type-bold="true" textEnabled="Switch" textDisabled="Switch again"></switches>-->
             </p>
             <div class="dimension-list-item">
-                <Checkbox label-title="I'm unchecked" label-checked="Okay I'm checked" mutate="menuColor"></Checkbox>
+                <Checkbox label-title="I'm unchecked" label-checked="Okay I'm checked"></Checkbox>
                 <br>
                 <Checkbox label-title="Label 2"></Checkbox>
                 <br>
                 <Checkbox></Checkbox>
             </div>
             <button-animated text="FX" classes="positive fade" content-hidden="Faded"></button-animated>
-        <!-- </template> -->
+            <ul class="ui list">
+                <li v-for="user in users">
+                    <ul class="ui bulleted list">
+                        <li class="item">{{user.name}}</li>
+                        <li class="item">{{user.email}}</li>
+                        <li class="item">{{user.website}}</li>
+                    </ul>
+                </li>
+            </ul>
+        </template>
     </div>
 </template>
 
@@ -38,6 +47,16 @@
             }
         }
     `;
+    const fakeAPI = gql`
+        query allUsers {
+            users {
+                id
+                name
+                email
+                website
+            }
+        }
+    `;
 
     export default {
         name: 'home',
@@ -48,7 +67,9 @@
         data() {
             return {
                 page: {},
+                users: [],
                 routename: this.$route.name,
+                loading: 0,
             };
         },
         apollo: {
@@ -59,6 +80,10 @@
                         route: this.routename,
                     };
                 },
+            },
+            users: {
+                query: fakeAPI,
+                loadingKey: 'loading',
             },
         },
     };

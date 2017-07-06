@@ -4,7 +4,8 @@
             Loading…
         </template>
         <template v-else>
-            <div class="ui secondary vertical pointing menu">
+            <div class="ui secondary vertical pointing menu" :class="color">
+
                 <router-link v-for="link in links" :key="link.id" class="item" :to="{ name: link.router }" exact>{{ link.title }}</router-link>
             </div>
         </template>
@@ -13,29 +14,53 @@
 
 <script>
     import gql from 'graphql-tag';
+    import Checkbox from '@/components/ui/Checkbox';
 
     // GraphQL query
     const linksQuery = gql`
-    query allLinks {
-        links {
-            id
-            title
-            href
-            router
+        query allLinks {
+            links {
+                id
+                title
+                href
+                router
+            }
         }
-    }
+    `;
+    const menusQuery = gql`
+        query allMenus {
+            menus {
+                id
+                color
+            }
+        }
     `;
 
     export default {
         name: 'link-list',
+        components: {
+            Checkbox,
+        },
         props: {
-            menuColor() {
-                return true;
+            menuId: {
+                default: 1,
+            },
+        },
+        computed: {
+            color() {
+                let color = 'salmon';
+                this.menus.forEach((menu) => {
+                    if (menu.id.toString() === this.menuId.toString()) {
+                        color = menu.color;
+                    }
+                });
+                return color;
             },
         },
         data() {
             return {
                 links: [],
+                menus: [],
                 loading: 0,
             };
         },
@@ -43,6 +68,10 @@
             // Local state 'links' data
             links: {
                 query: linksQuery,
+                loadingKey: 'loading',
+            },
+            menus: {
+                query: menusQuery,
                 loadingKey: 'loading',
             },
         },
@@ -55,6 +84,12 @@
     a {
         display: block;
         width: 100%;
+    }
+    .blue {
+        color: blue;
+    }
+    .red {
+        color: red;
     }
 
 </style>

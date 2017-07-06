@@ -16,7 +16,7 @@
             <div class="three wide column">
                 <img src="~imgs/brand/logo.png" class="kv-img">
                 <button-animated text="Commander" classes="primary" v-bind:icon="{direction:'right', name:'arrow'}"></button-animated>
-                <LinkList subscribe="menuColor"></LinkList>
+                <LinkList subscribe="changeMenu" menu-id="1"></LinkList>
             </div>
             <div class="thirteen wide column">
                 <router-view></router-view>
