@@ -38,5 +38,6 @@ module.exports = {
     //
     'indent': [2, 4],
     // 'no-var': 0
+    'no-console': 0,
   }
 }

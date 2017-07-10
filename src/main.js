@@ -12,7 +12,7 @@ import '../node_modules/semantic-ui-css/semantic.min.css';
 
 Vue.config.productionTip = false;
 
-const apolloURI = process.env.LOCATION_CONTEXT || 'localhost:8999';
+const apolloURI = process.env.LOCATION_CONTEXT;
 
 // Create the apollo client
 const apolloClient = new ApolloClient({
